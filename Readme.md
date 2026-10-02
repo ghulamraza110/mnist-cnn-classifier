@@ -7,7 +7,7 @@ A modular, production-ready machine learning project implementing a Convolutiona
 ## Project Structure
 
 ```text
-mnist_cnn_classifier /
+mnist-cnn-classifier /
 │
 ├── models/
 │   └── mnist_cnn.keras         # Saved model artifact (generated after training)
@@ -41,7 +41,7 @@ mnist_cnn_classifier /
 
 ```bash
 git clone <your-repository-url>
-cd mnist_cnn_classifier
+cd mnist-cnn-classifier
 
 ```
 
@@ -59,7 +59,7 @@ venv\Scripts\activate
 ### 3. Install Dependencies
 
 ```bash
-pip -m pip install tensorflow fastapi uvicorn pillow numpy
+python -m pip install tensorflow fastapi uvicorn pillow numpy python-multipart
 
 ```
 
@@ -114,15 +114,17 @@ The application will be accessible at:
 * **Content-Type**: `multipart/form-data`
 * **Payload**: `file` (Image formats supported: `.jpg`, `.jpeg`, `.png`, `.bmp`)
 
-#### Example Request (cURL)
 
-```bash
-curl -X POST "http://localhost:8000/predict" \
-     -H "accept: application/json" \
-     -H "Content-Type: multipart/form-data" \
-     -F "file=@path/to/digit_image.png"
 
-```
+---
+
+## Testing via Browser (Swagger UI) 
+
+1. Navigate to `http://localhost:8000/docs`.
+2. Expand the `POST /predict` endpoint.
+3. Click **Try it out**.
+4. Choose an image file of a digit from your system.
+5. Click **Execute** to view the response payload and prediction confidence.
 
 #### Example Response
 
@@ -146,14 +148,3 @@ curl -X POST "http://localhost:8000/predict" \
 }
 
 ```
-
----
-
-## Testing via Browser (Swagger UI)
-
-1. Navigate to `http://localhost:8000/docs`.
-2. Expand the `POST /predict` endpoint.
-3. Click **Try it out**.
-4. Choose an image file of a digit from your system.
-5. Click **Execute** to view the response payload and prediction confidence.
-
