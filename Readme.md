@@ -7,7 +7,7 @@ A modular, production-ready machine learning project implementing a Convolutiona
 ## Project Structure
 
 ```text
-mnist_cnn_project/
+mnist_cnn_classifier /
 │
 ├── models/
 │   └── mnist_cnn.keras         # Saved model artifact (generated after training)
@@ -41,7 +41,7 @@ mnist_cnn_project/
 
 ```bash
 git clone <your-repository-url>
-cd mnist_cnn_project
+cd mnist_cnn_classifier
 
 ```
 
@@ -59,7 +59,7 @@ venv\Scripts\activate
 ### 3. Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+pip -m pip install tensorflow fastapi uvicorn pillow numpy
 
 ```
 
@@ -68,6 +68,7 @@ pip install -r requirements.txt
 ## Usage
 
 ### 1. Train the CNN Model
+`Note:` the file is already included in the repository, but you can retrain the model if needed.
 
 Run `train.py` to download the MNIST dataset, train the network for 10 epochs, evaluate test accuracy, and export the model to `models/mnist_cnn.keras`:
 
